@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { actionTypes, selectors } from '../../features/counter'
+import { increaseCounterAsync } from '../../features/counter/actions'
 
 const Counter: React.FC = () => {
   const count = useSelector(selectors.getCountValue)
@@ -42,6 +43,16 @@ const Counter: React.FC = () => {
                   }
                 >
                   increment
+                </button>
+                <button
+                  className="waves-effect waves-teal btn-flat red"
+                  type="button"
+                  data-qa="increment-counter-async"
+                  onClick={() =>
+                    dispatch(increaseCounterAsync())
+                  }
+                >
+                  increment counter async
                 </button>
               </div>
             </div>
